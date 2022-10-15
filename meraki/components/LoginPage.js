@@ -12,6 +12,7 @@ import {
   TextField,
   Button,
   Link,
+  Container,
 } from "@material-ui/core";
 import NextLink from "next/link";
 import { getError, useStyles } from "../utils";
@@ -53,14 +54,7 @@ function LoginPage() {
   };
 
   return (
-    <div
-      style={{
-        height: "85vh",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
+    <Container className={classes.login_container}>
       <form className={classes.form} onSubmit={handleSubmit(submitHandler)}>
         <Typography
           component="h1"
@@ -141,7 +135,15 @@ function LoginPage() {
           </ListItem>
         </List>
       </form>
-    </div>
+      <Container className={classes.login_form_buttons_container}>
+        <Button variant="contained" type="submit" fullWidth color="primary">
+          Login with user test credentials
+        </Button>
+        <Button variant="contained" type="submit" fullWidth color="primary">
+          login with admin test credentials
+        </Button>
+      </Container>
+    </Container>
   );
 }
 

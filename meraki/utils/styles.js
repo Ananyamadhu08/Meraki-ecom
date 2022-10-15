@@ -169,6 +169,20 @@ const useStyles = makeStyles({
     padding: "2rem",
     borderRadius: "1rem",
   },
+  login_container: {
+    height: "85vh",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    gap: "2rem",
+  },
+  login_form_buttons_container: {
+    width: "63%",
+    display: "flex",
+    gap: "1rem",
+    marginBottom: "0.5rem",
+  },
   auth_heading: {
     textAlign: "center",
   },
