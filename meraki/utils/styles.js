@@ -9,7 +9,7 @@ const useStyles = makeStyles({
     backgroundColor: "transparent",
   },
   table_headings: {
-    color: "#0f172a",
+    color: "#0f172a !important",
   },
   selected_heading: {
     fontSize: "3rem",
