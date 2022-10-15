@@ -13,6 +13,7 @@ import {
   Button,
   Menu,
   MenuItem,
+  Container,
 } from "@material-ui/core";
 import { useStyles } from "../../utils";
 import { useStore } from "../../context";
@@ -53,7 +54,13 @@ export default function NavBar() {
       <Toolbar>
         <NextLink href="/" passHref>
           <a>
-            <Typography className={classes.brand}>Meraki</Typography>
+            <Container className={classes.brand_container}>
+              <i
+                className="fa-solid fa-dice-d20"
+                style={{ fontSize: "1.7rem" }}
+              />
+              <Typography className={classes.brand}>Meraki</Typography>
+            </Container>
           </a>
         </NextLink>
         <div className={classes.grow} />

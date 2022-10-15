@@ -9,7 +9,7 @@ const useStyles = makeStyles({
     backgroundColor: "transparent",
   },
   table_headings: {
-    color: "#0f172a",
+    color: "#0f172a !important",
   },
   selected_heading: {
     fontSize: "3rem",
@@ -32,6 +32,12 @@ const useStyles = makeStyles({
       color: "#ffffff",
       marginLeft: 10,
     },
+  },
+  brand_container: {
+    display: "flex",
+    alignItems: "center",
+    padding: "0 !important",
+    gap: "0.5rem",
   },
   brand: {
     fontSize: "1.7rem",
@@ -108,9 +114,9 @@ const useStyles = makeStyles({
     height: "25.5rem",
   },
   home_page_card_img: {
-    width: "100%",
+    width: "100% !important",
     height: "15rem",
-    objectFit: "fill",
+    objectFit: "fill !important",
   },
   home_page__card_details: {
     textAlign: "center",
