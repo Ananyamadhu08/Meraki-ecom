@@ -49,6 +49,23 @@ function LoginPage() {
     }
   };
 
+  const loginWithAdminTestCredentials = async () => {
+    const email = "admin@gmail.com";
+    const password = "password";
+    try {
+      const { data } = await axios.post("/api/users/login", {
+        email,
+        password,
+      });
+
+      dispatch({ type: "USER_LOGIN", payload: data });
+      Cookies.set("userInfo", JSON.stringify(data));
+      router.push(redirect || "/");
+    } catch (err) {
+      enqueueSnackbar(getError(err), { variant: "error" });
+    }
+  };
+
   useEffect(() => {
     if (userInfo) {
       router.push("/");
@@ -163,7 +180,13 @@ function LoginPage() {
         >
           Login with user test credentials
         </Button>
-        <Button variant="contained" type="submit" fullWidth color="primary">
+        <Button
+          variant="contained"
+          type="submit"
+          fullWidth
+          color="primary"
+          onClick={loginWithAdminTestCredentials}
+        >
           login with admin test credentials
         </Button>
       </Container>
