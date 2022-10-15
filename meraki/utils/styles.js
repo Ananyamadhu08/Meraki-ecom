@@ -33,6 +33,12 @@ const useStyles = makeStyles({
       marginLeft: 10,
     },
   },
+  brand_container: {
+    display: "flex",
+    alignItems: "center",
+    padding: "0 !important",
+    gap: "0.5rem",
+  },
   brand: {
     fontSize: "1.7rem",
   },
