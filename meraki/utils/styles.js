@@ -108,9 +108,9 @@ const useStyles = makeStyles({
     height: "25.5rem",
   },
   home_page_card_img: {
-    width: "100%",
+    width: "100% !important",
     height: "15rem",
-    objectFit: "fill",
+    objectFit: "fill !important",
   },
   home_page__card_details: {
     textAlign: "center",
