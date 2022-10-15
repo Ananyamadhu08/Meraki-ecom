@@ -32,6 +32,23 @@ function LoginPage() {
   const { state, dispatch } = useStore();
   const { userInfo } = state;
 
+  const loginWithUserTestCredentials = async () => {
+    const email = "jane@gmail.com";
+    const password = "password";
+    try {
+      const { data } = await axios.post("/api/users/login", {
+        email,
+        password,
+      });
+
+      dispatch({ type: "USER_LOGIN", payload: data });
+      Cookies.set("userInfo", JSON.stringify(data));
+      router.push(redirect || "/");
+    } catch (err) {
+      enqueueSnackbar(getError(err), { variant: "error" });
+    }
+  };
+
   useEffect(() => {
     if (userInfo) {
       router.push("/");
@@ -45,6 +62,7 @@ function LoginPage() {
         email,
         password,
       });
+
       dispatch({ type: "USER_LOGIN", payload: data });
       Cookies.set("userInfo", JSON.stringify(data));
       router.push(redirect || "/");
@@ -136,7 +154,13 @@ function LoginPage() {
         </List>
       </form>
       <Container className={classes.login_form_buttons_container}>
-        <Button variant="contained" type="submit" fullWidth color="primary">
+        <Button
+          variant="contained"
+          type="submit"
+          fullWidth
+          color="primary"
+          onClick={loginWithUserTestCredentials}
+        >
           Login with user test credentials
         </Button>
         <Button variant="contained" type="submit" fullWidth color="primary">
