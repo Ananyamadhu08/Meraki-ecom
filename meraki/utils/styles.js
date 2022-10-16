@@ -181,7 +181,11 @@ const useStyles = makeStyles({
     width: "63%",
     display: "flex",
     gap: "1rem",
+    flexDirection: "column",
     marginBottom: "0.5rem",
+    "@media (min-width: 850px)": {
+      flexDirection: "row",
+    },
   },
   auth_heading: {
     textAlign: "center",
