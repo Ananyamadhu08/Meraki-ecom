@@ -274,7 +274,7 @@ const useStyles = makeStyles({
     borderRadius: "0.5rem",
   },
   admin_card_grid: {
-    marginBottom: "2.5rem",
+    marginBottom: "2.5rem !important",
   },
 
   // admin orders
