@@ -57,7 +57,7 @@ export default function NavBar() {
             <Container className={classes.brand_container}>
               <i
                 className="fa-solid fa-dice-d20"
-                style={{ fontSize: "1.7rem" }}
+                style={{ fontSize: "2rem" }}
               />
               <Typography className={classes.brand}>Meraki</Typography>
             </Container>

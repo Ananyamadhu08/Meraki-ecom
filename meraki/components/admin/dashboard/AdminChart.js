@@ -9,7 +9,7 @@ function AdminChart({ summary }) {
         datasets: [
           {
             label: "Sales",
-            backgroundColor: "#0891b2",
+            backgroundColor: "#0e7490",
             data: summary.salesData.map((x) => x.totalSales),
           },
         ],
