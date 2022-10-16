@@ -12,6 +12,7 @@ import {
   TextField,
   Button,
   Link,
+  Container,
 } from "@material-ui/core";
 import NextLink from "next/link";
 import { getError, useStyles } from "../utils";
@@ -31,6 +32,40 @@ function LoginPage() {
   const { state, dispatch } = useStore();
   const { userInfo } = state;
 
+  const loginWithUserTestCredentials = async () => {
+    const email = "jane@gmail.com";
+    const password = "password";
+    try {
+      const { data } = await axios.post("/api/users/login", {
+        email,
+        password,
+      });
+
+      dispatch({ type: "USER_LOGIN", payload: data });
+      Cookies.set("userInfo", JSON.stringify(data));
+      router.push(redirect || "/");
+    } catch (err) {
+      enqueueSnackbar(getError(err), { variant: "error" });
+    }
+  };
+
+  const loginWithAdminTestCredentials = async () => {
+    const email = "admin@gmail.com";
+    const password = "password";
+    try {
+      const { data } = await axios.post("/api/users/login", {
+        email,
+        password,
+      });
+
+      dispatch({ type: "USER_LOGIN", payload: data });
+      Cookies.set("userInfo", JSON.stringify(data));
+      router.push(redirect || "/");
+    } catch (err) {
+      enqueueSnackbar(getError(err), { variant: "error" });
+    }
+  };
+
   useEffect(() => {
     if (userInfo) {
       router.push("/");
@@ -44,6 +79,7 @@ function LoginPage() {
         email,
         password,
       });
+
       dispatch({ type: "USER_LOGIN", payload: data });
       Cookies.set("userInfo", JSON.stringify(data));
       router.push(redirect || "/");
@@ -53,14 +89,7 @@ function LoginPage() {
   };
 
   return (
-    <div
-      style={{
-        height: "85vh",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
+    <Container className={classes.login_container}>
       <form className={classes.form} onSubmit={handleSubmit(submitHandler)}>
         <Typography
           component="h1"
@@ -141,7 +170,27 @@ function LoginPage() {
           </ListItem>
         </List>
       </form>
-    </div>
+      <Container className={classes.login_form_buttons_container}>
+        <Button
+          variant="contained"
+          type="submit"
+          fullWidth
+          color="primary"
+          onClick={loginWithUserTestCredentials}
+        >
+          Login with user test credentials
+        </Button>
+        <Button
+          variant="contained"
+          type="submit"
+          fullWidth
+          color="primary"
+          onClick={loginWithAdminTestCredentials}
+        >
+          login with admin test credentials
+        </Button>
+      </Container>
+    </Container>
   );
 }
 

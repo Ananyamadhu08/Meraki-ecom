@@ -83,7 +83,24 @@ function AdminUsers() {
     }
 
     if (users.find((item) => item?._id === userId)?.isAdmin) {
-      return enqueueSnackbar("Admin cant be deleted", { variant: "error" });
+      return enqueueSnackbar("Admin can't be deleted", { variant: "error" });
+    }
+
+    if (
+      users.find(
+        (item) =>
+          item?._id !== userId?.isAdmin && item?.email === "admin@gmail.com",
+      )
+    ) {
+      return enqueueSnackbar("Test credentials can't be deleted", {
+        variant: "error",
+      });
+    }
+
+    if (users.find((item) => item?.email === "jane@gmail.com")) {
+      return enqueueSnackbar("Test credentials can't be deleted", {
+        variant: "error",
+      });
     }
 
     try {
