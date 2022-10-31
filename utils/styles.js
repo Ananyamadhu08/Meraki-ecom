@@ -146,19 +146,19 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
   },
 
-  // home page
-  home_page_card: {
+  // Product card
+  product_card: {
     backgroundColor: "#ecfeff",
     color: "#0f172a",
-    width: "17.5rem",
+    width: "18rem",
     height: "21rem",
   },
-  home_page_card_img: {
+  product_card_img: {
     width: "100% !important",
     height: "13.5rem",
     objectFit: "fill !important",
   },
-  home_page__card_details: {
+  product_card_details: {
     display: "flex",
     flexDirection: "column",
     gap: "0.3rem",
@@ -167,14 +167,14 @@ const useStyles = makeStyles((theme) => ({
     paddingBottom: "0.5rem",
     paddingLeft: "1rem",
   },
-  home_page_btn_container: {
+  product_btn_container: {
     display: "flex",
     justifyContent: "space-between",
     paddingTop: "0.5rem",
     paddingLeft: "1rem",
     paddingRight: "1rem",
   },
-  home_page_card_btn: {
+  product_card_btn: {
     fontSize: "1.5rem",
     color: "#0e7490",
     cursor: "pointer",

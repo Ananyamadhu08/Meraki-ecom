@@ -24,9 +24,9 @@ export default function Home({ products }) {
   return (
     <div>
       <Layout>
-        <Grid container spacing={2}>
+        <Grid container spacing={3}>
           {products.map((product) => (
-            <Grid item md={3} key={product.name}>
+            <Grid item lg={3} key={product.name}>
               <ProductCard
                 product={product}
                 addToCartHandler={addToCartHandler}
