@@ -1,12 +1,39 @@
-import { HomePage, Layout } from "../components";
+import { Grid } from "@material-ui/core";
+import axios from "axios";
+import { useSnackbar } from "notistack";
+import { useStore } from "../context";
+import { Layout, ProductCard } from "../components";
 import { Product } from "../models";
 import { db } from "../utils";
 
 export default function Home({ products }) {
+  const { state, dispatch } = useStore();
+  const { enqueueSnackbar } = useSnackbar();
+
+  const addToCartHandler = async (product) => {
+    const existItem = state.cart.cartItems.find((x) => x._id === product._id);
+    const quantity = existItem ? existItem.quantity + 1 : 1;
+    const { data } = await axios.get(`/api/products/${product._id}`);
+    if (data.countInStock < quantity) {
+      enqueueSnackbar("Sorry. Product is out of stock", { variant: "error" });
+      return;
+    }
+    dispatch({ type: "CART_ADD_ITEM", payload: { ...product, quantity } });
+  };
+
   return (
     <div>
       <Layout>
-        <HomePage products={products} />
+        <Grid container spacing={3}>
+          {products.map((product) => (
+            <Grid item lg={3} key={product.name}>
+              <ProductCard
+                product={product}
+                addToCartHandler={addToCartHandler}
+              />
+            </Grid>
+          ))}
+        </Grid>
       </Layout>
     </div>
   );

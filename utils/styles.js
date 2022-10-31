@@ -1,6 +1,6 @@
 import { makeStyles } from "@material-ui/core";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   // shared
   cursor_pointer: {
     cursor: "pointer",
@@ -21,10 +21,10 @@ const useStyles = makeStyles({
 
   // layout
   navbar: {
-    backgroundColor: "#0e7490",
+    backgroundColor: "#164e63",
     color: "#ecfeff",
     display: "flex",
-    justifyContent: "center",
+    justifyContent: "between",
     position: "fixed",
     height: "4rem",
     marginBottom: "2.5rem",
@@ -43,6 +43,7 @@ const useStyles = makeStyles({
     cursor: "pointer",
   },
   brand_container: {
+    width: "max-content",
     display: "flex",
     alignItems: "center",
     padding: "0 !important",
@@ -66,15 +67,6 @@ const useStyles = makeStyles({
     fontSize: "1.6rem",
     cursor: "pointer",
   },
-  nav_btn: {
-    fontSize: "1rem",
-    backgroundColor: "#0891b2",
-    borderRadius: "0.3rem",
-    paddingTop: "0.4rem",
-    paddingBottom: "0.4rem",
-    paddingRight: "0.8rem",
-    paddingLeft: "0.8rem",
-  },
   toolbar: {
     justifyContent: "space-between",
   },
@@ -93,7 +85,7 @@ const useStyles = makeStyles({
     color: "#ffffff",
     textTransform: "initial",
     "&:hover": {
-      backgroundColor: "#164e63",
+      backgroundColor: "#0e7490",
     },
   },
 
@@ -104,7 +96,7 @@ const useStyles = makeStyles({
     minHeight: "90vh",
   },
   footer: {
-    backgroundColor: "#0e7490",
+    backgroundColor: "#164e63",
     height: "3rem",
     marginTop: "6rem",
     display: "flex",
@@ -115,6 +107,37 @@ const useStyles = makeStyles({
     gap: "1.5rem",
   },
 
+  // search
+  searchSection: {
+    width: "100%",
+    display: "none",
+    [theme.breakpoints.up("sm")]: {
+      display: "flex",
+      justifyContent: "center",
+    },
+  },
+  searchForm: {
+    width: "70%",
+    display: "flex",
+    border: "1px solid #0e7490",
+    backgroundColor: "#0e7490",
+    borderRadius: "0.5rem",
+  },
+  searchInput: {
+    paddingLeft: "0.3rem",
+    color: "#ecfeff",
+    "& ::placeholder": {
+      color: "#ecfeff",
+    },
+  },
+  iconButton: {
+    fontSize: "1.4rem",
+    padding: "0.4rem",
+    "& span": {
+      color: "#ecfeff",
+    },
+  },
+
   // Not Found
   not_found_container: {
     backgroundColor: "#ecfeff",
@@ -123,35 +146,35 @@ const useStyles = makeStyles({
     alignItems: "center",
   },
 
-  // home page
-  home_page_card: {
+  // Product card
+  product_card: {
     backgroundColor: "#ecfeff",
     color: "#0f172a",
     width: "18rem",
-    height: "25.5rem",
+    height: "22rem",
   },
-  home_page_card_img: {
+  product_card_img: {
     width: "100% !important",
-    height: "15rem",
+    height: "13.5rem",
     objectFit: "fill !important",
   },
-  home_page__card_details: {
-    textAlign: "center",
-  },
-  home_page_btn_container: {
+  product_card_details: {
     display: "flex",
-    justifyContent: "center",
+    flexDirection: "column",
+    gap: "0.3rem",
   },
-  home_page_card_btn: {
-    backgroundColor: "#0e7490",
-    color: "#ecfeff",
-    paddingTop: "0.7rem",
-    paddingBottom: "0.7rem",
-    paddingRight: "1rem",
-    paddingLeft: "1rem",
-    "&:hover": {
-      backgroundColor: "#155e75",
-    },
+  product_btn_container: {
+    display: "flex",
+    justifyContent: "space-between",
+    paddingTop: "0.6rem",
+    marginLeft: "0.5rem",
+    marginRight: "0.5rem",
+    marginBottom: "2rem",
+  },
+  product_card_btn: {
+    fontSize: "1.5rem",
+    color: "#0e7490",
+    cursor: "pointer",
   },
 
   // product details page
@@ -368,5 +391,45 @@ const useStyles = makeStyles({
   edit_user_form_heading: {
     fontSize: "1.7rem",
   },
-});
+
+  // search page
+  filters_sidebar: {
+    display: "flex",
+    flexDirection: "column",
+    gap: "0.7rem",
+    padding: "1rem",
+    [theme.breakpoints.up("md")]: {
+      width: "20%",
+      position: "fixed",
+      justifyContent: "center",
+    },
+  },
+  filters_sidebar_headings: {
+    marginBottom: "0.1rem",
+  },
+  filters_sidebar_select: {
+    width: "100%",
+  },
+  search_results_header: {
+    fontSize: "1rem",
+    display: "flex",
+    alignItems: "center",
+    gap: "0.8rem",
+  },
+  sort_by_select: {
+    marginLeft: "0.5rem",
+  },
+  search_result_page_header: {
+    marginBottom: "1.3rem",
+  },
+  result_page_numbers: {
+    marginTop: "1.5rem",
+  },
+  no_search_results_img_container: {
+    display: "flex",
+    width: "100%",
+    justifyContent: "center",
+    marginTop: "3rem",
+  },
+}));
 export default useStyles;
