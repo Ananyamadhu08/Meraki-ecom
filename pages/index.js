@@ -1,21 +1,21 @@
-/* eslint-disable no-alert */
 import { Grid } from "@material-ui/core";
 import axios from "axios";
+import { useSnackbar } from "notistack";
 import { useStore } from "../context";
-
 import { Layout, ProductCard } from "../components";
 import { Product } from "../models";
 import { db } from "../utils";
 
 export default function Home({ products }) {
   const { state, dispatch } = useStore();
+  const { enqueueSnackbar } = useSnackbar();
 
   const addToCartHandler = async (product) => {
     const existItem = state.cart.cartItems.find((x) => x._id === product._id);
     const quantity = existItem ? existItem.quantity + 1 : 1;
     const { data } = await axios.get(`/api/products/${product._id}`);
     if (data.countInStock < quantity) {
-      window.alert("Sorry. Product is out of stock");
+      enqueueSnackbar("Sorry. Product is out of stock", { variant: "error" });
       return;
     }
     dispatch({ type: "CART_ADD_ITEM", payload: { ...product, quantity } });

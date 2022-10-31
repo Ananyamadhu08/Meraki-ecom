@@ -394,5 +394,45 @@ const useStyles = makeStyles((theme) => ({
   edit_user_form_heading: {
     fontSize: "1.7rem",
   },
+
+  // search page
+  filters_sidebar: {
+    display: "flex",
+    flexDirection: "column",
+    gap: "0.7rem",
+    padding: "1rem",
+    [theme.breakpoints.up("md")]: {
+      width: "20%",
+      position: "fixed",
+      justifyContent: "center",
+    },
+  },
+  filters_sidebar_headings: {
+    marginBottom: "0.1rem",
+  },
+  filters_sidebar_select: {
+    width: "100%",
+  },
+  search_results_header: {
+    fontSize: "1rem",
+    display: "flex",
+    alignItems: "center",
+    gap: "0.8rem",
+  },
+  sort_by_select: {
+    marginLeft: "0.5rem",
+  },
+  search_result_page_header: {
+    marginBottom: "1.3rem",
+  },
+  result_page_numbers: {
+    marginTop: "1.5rem",
+  },
+  no_search_results_img_container: {
+    display: "flex",
+    width: "100%",
+    justifyContent: "center",
+    marginTop: "3rem",
+  },
 }));
 export default useStyles;

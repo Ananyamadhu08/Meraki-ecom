@@ -1,8 +1,8 @@
-/* eslint-disable no-alert */
 import React from "react";
 import NextLink from "next/link";
 import Image from "next/image";
 import axios from "axios";
+import { useSnackbar } from "notistack";
 import {
   TableContainer,
   Table,
@@ -20,11 +20,12 @@ import { useStore } from "../../context";
 
 function CartItemsTable({ cartItems }) {
   const { dispatch } = useStore();
+  const { enqueueSnackbar } = useSnackbar();
 
   const updateCartHandler = async (item, quantity) => {
     const { data } = await axios.get(`/api/products/${item._id}`);
     if (data.countInStock < quantity) {
-      window.alert("Sorry. Product is out of stock");
+      enqueueSnackbar("Sorry. Product is out of stock", { variant: "error" });
       return;
     }
     dispatch({ type: "CART_ADD_ITEM", payload: { ...item, quantity } });
