@@ -21,6 +21,8 @@ import {
   ListItem,
   Divider,
   ListItemText,
+  IconButton,
+  InputBase,
 } from "@material-ui/core";
 import { useSnackbar } from "notistack";
 import axios from "axios";
@@ -82,55 +84,82 @@ export default function NavBar() {
     Cookies.set("darkMode", newDarkMode ? "ON" : "OFF");
   };
 
+  const [query, setQuery] = useState("");
+  const queryChangeHandler = (e) => {
+    setQuery(e.target.value);
+  };
+  const submitHandler = (e) => {
+    e.preventDefault();
+    router.push(`/search?query=${query}`);
+  };
+
   return (
     <AppBar position="static" className={classes.navbar}>
       <Toolbar className={classes.toolbar}>
-        <Container className={classes.brand_container}>
-          <Box className={classes.nav_menu_icon}>
-            <i className="fa-solid fa-bars" onClick={sidebarOpenHandler} />
-          </Box>
-          <NextLink href="/" passHref>
-            <Typography className={classes.brand}>Meraki</Typography>
-          </NextLink>
-        </Container>
+        <Box>
+          <Container className={classes.brand_container}>
+            <Box className={classes.nav_menu_icon}>
+              <i className="fa-solid fa-bars" onClick={sidebarOpenHandler} />
+            </Box>
+            <NextLink href="/" passHref>
+              <Typography className={classes.brand}>Meraki</Typography>
+            </NextLink>
+          </Container>
 
-        <Drawer
-          anchor="left"
-          open={sidebarVisible}
-          onClose={sidebarCloseHandler}
-        >
-          <List>
-            <ListItem>
-              <Box
-                display="flex"
-                alignItems="center"
-                justifyContent="space-between"
-              >
-                <Typography>Shop by category</Typography>
+          <Drawer
+            anchor="left"
+            open={sidebarVisible}
+            onClose={sidebarCloseHandler}
+          >
+            <List>
+              <ListItem>
+                <Box
+                  display="flex"
+                  alignItems="center"
+                  justifyContent="space-between"
+                >
+                  <Typography>Shop by category</Typography>
 
-                <Box className={classes.nav_menu_close_icon}>
-                  <i
-                    className="fa-solid fa-xmark"
-                    onClick={sidebarCloseHandler}
-                  />
+                  <Box className={classes.nav_menu_close_icon}>
+                    <i
+                      className="fa-solid fa-xmark"
+                      onClick={sidebarCloseHandler}
+                    />
+                  </Box>
                 </Box>
-              </Box>
-            </ListItem>
-            <Divider light />
-            {categories.map((category) => (
-              <NextLink
-                key={category}
-                href={`/search?category=${category}`}
-                passHref
-              >
-                <ListItem button component="a" onClick={sidebarCloseHandler}>
-                  <ListItemText primary={category} />
-                </ListItem>
-              </NextLink>
-            ))}
-          </List>
-        </Drawer>
-        <div className={classes.grow} />
+              </ListItem>
+              <Divider light />
+              {categories.map((category) => (
+                <NextLink
+                  key={category}
+                  href={`/search?category=${category}`}
+                  passHref
+                >
+                  <ListItem button component="a" onClick={sidebarCloseHandler}>
+                    <ListItemText primary={category} />
+                  </ListItem>
+                </NextLink>
+              ))}
+            </List>
+          </Drawer>
+        </Box>
+        <div className={classes.searchSection}>
+          <form onSubmit={submitHandler} className={classes.searchForm}>
+            <IconButton
+              type="submit"
+              className={classes.iconButton}
+              aria-label="search"
+            >
+              <i className="fa-solid fa-magnifying-glass" />
+            </IconButton>
+            <InputBase
+              name="query"
+              className={classes.searchInput}
+              placeholder="Search products"
+              onChange={queryChangeHandler}
+            />
+          </form>
+        </div>
         <div className={classes.nav_link_container}>
           <Box
             onClick={darkModeHandler}

@@ -1,6 +1,6 @@
 import { makeStyles } from "@material-ui/core";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   // shared
   cursor_pointer: {
     cursor: "pointer",
@@ -21,10 +21,10 @@ const useStyles = makeStyles({
 
   // layout
   navbar: {
-    backgroundColor: "#0e7490",
+    backgroundColor: "#164e63",
     color: "#ecfeff",
     display: "flex",
-    justifyContent: "center",
+    justifyContent: "between",
     position: "fixed",
     height: "4rem",
     marginBottom: "2.5rem",
@@ -43,6 +43,7 @@ const useStyles = makeStyles({
     cursor: "pointer",
   },
   brand_container: {
+    width: "max-content",
     display: "flex",
     alignItems: "center",
     padding: "0 !important",
@@ -66,15 +67,6 @@ const useStyles = makeStyles({
     fontSize: "1.6rem",
     cursor: "pointer",
   },
-  nav_btn: {
-    fontSize: "1rem",
-    backgroundColor: "#0891b2",
-    borderRadius: "0.3rem",
-    paddingTop: "0.4rem",
-    paddingBottom: "0.4rem",
-    paddingRight: "0.8rem",
-    paddingLeft: "0.8rem",
-  },
   toolbar: {
     justifyContent: "space-between",
   },
@@ -93,7 +85,7 @@ const useStyles = makeStyles({
     color: "#ffffff",
     textTransform: "initial",
     "&:hover": {
-      backgroundColor: "#164e63",
+      backgroundColor: "#0e7490",
     },
   },
 
@@ -104,7 +96,7 @@ const useStyles = makeStyles({
     minHeight: "90vh",
   },
   footer: {
-    backgroundColor: "#0e7490",
+    backgroundColor: "#164e63",
     height: "3rem",
     marginTop: "6rem",
     display: "flex",
@@ -113,6 +105,37 @@ const useStyles = makeStyles({
     fontSize: "1.5rem",
     color: "#ecfeff",
     gap: "1.5rem",
+  },
+
+  // search
+  searchSection: {
+    width: "100%",
+    display: "none",
+    [theme.breakpoints.up("sm")]: {
+      display: "flex",
+      justifyContent: "center",
+    },
+  },
+  searchForm: {
+    width: "70%",
+    display: "flex",
+    border: "1px solid #0e7490",
+    backgroundColor: "#0e7490",
+    borderRadius: "0.5rem",
+  },
+  searchInput: {
+    paddingLeft: "0.3rem",
+    color: "#ecfeff",
+    "& ::placeholder": {
+      color: "#ecfeff",
+    },
+  },
+  iconButton: {
+    fontSize: "1.4rem",
+    padding: "0.4rem",
+    "& span": {
+      color: "#ecfeff",
+    },
   },
 
   // Not Found
@@ -368,5 +391,5 @@ const useStyles = makeStyles({
   edit_user_form_heading: {
     fontSize: "1.7rem",
   },
-});
+}));
 export default useStyles;
