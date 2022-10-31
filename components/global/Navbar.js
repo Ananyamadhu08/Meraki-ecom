@@ -174,7 +174,7 @@ export default function NavBar() {
 
           <NextLink href="/cart" passHref>
             {cart.cartItems.length > 0 ? (
-              <Badge color="secondary" badgeContent={cart.cartItems.length}>
+              <Badge color="primary" badgeContent={cart.cartItems.length}>
                 <a className={classes.nav_link}>
                   <i className="fa-solid fa-cart-shopping" />
                 </a>

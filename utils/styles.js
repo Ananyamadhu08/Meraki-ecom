@@ -150,31 +150,34 @@ const useStyles = makeStyles((theme) => ({
   home_page_card: {
     backgroundColor: "#ecfeff",
     color: "#0f172a",
-    width: "18rem",
-    height: "25.5rem",
+    width: "17.5rem",
+    height: "21rem",
   },
   home_page_card_img: {
     width: "100% !important",
-    height: "15rem",
+    height: "13.5rem",
     objectFit: "fill !important",
   },
   home_page__card_details: {
-    textAlign: "center",
+    display: "flex",
+    flexDirection: "column",
+    gap: "0.3rem",
+    padding: 0,
+    paddingTop: "0.5rem",
+    paddingBottom: "0.5rem",
+    paddingLeft: "1rem",
   },
   home_page_btn_container: {
     display: "flex",
-    justifyContent: "center",
+    justifyContent: "space-between",
+    paddingTop: "0.5rem",
+    paddingLeft: "1rem",
+    paddingRight: "1rem",
   },
   home_page_card_btn: {
-    backgroundColor: "#0e7490",
-    color: "#ecfeff",
-    paddingTop: "0.7rem",
-    paddingBottom: "0.7rem",
-    paddingRight: "1rem",
-    paddingLeft: "1rem",
-    "&:hover": {
-      backgroundColor: "#155e75",
-    },
+    fontSize: "1.5rem",
+    color: "#0e7490",
+    cursor: "pointer",
   },
 
   // product details page

@@ -1,5 +1,5 @@
 import {
-  Button,
+  Box,
   Card,
   CardActionArea,
   CardActions,
@@ -26,19 +26,18 @@ export default function ProductCard({ product, addToCartHandler }) {
           <CardContent className={classes.home_page__card_details}>
             <Typography>{product.name}</Typography>
             <Typography>{product.brand}</Typography>
-            <Typography>Rs.{product.price}</Typography>
           </CardContent>
         </CardActionArea>
       </NextLink>
       <CardActions className={classes.home_page_btn_container}>
-        <Button
-          size="small"
-          color="primary"
+        <Typography>Rs.{product.price}</Typography>
+
+        <Box
           className={classes.home_page_card_btn}
           onClick={() => addToCartHandler(product)}
         >
-          Add to cart
-        </Button>
+          <i className="fa-solid fa-cart-plus" />
+        </Box>
       </CardActions>
     </Card>
   );
