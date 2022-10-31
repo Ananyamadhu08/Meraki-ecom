@@ -33,14 +33,24 @@ const useStyles = makeStyles({
       marginLeft: 10,
     },
   },
+  nav_menu_icon: {
+    fontSize: "1.5rem",
+    cursor: "pointer",
+  },
+  nav_menu_close_icon: {
+    fontSize: "1.3rem",
+    marginLeft: "2rem",
+    cursor: "pointer",
+  },
   brand_container: {
     display: "flex",
     alignItems: "center",
     padding: "0 !important",
-    gap: "0.5rem",
+    gap: "1rem",
   },
   brand: {
     fontSize: "1.7rem",
+    cursor: "pointer",
   },
   nav_link_container: {
     display: "flex",
@@ -52,6 +62,10 @@ const useStyles = makeStyles({
     fontSize: "1.6rem",
     cursor: "pointer",
   },
+  nav_dark_mode_icons: {
+    fontSize: "1.6rem",
+    cursor: "pointer",
+  },
   nav_btn: {
     fontSize: "1rem",
     backgroundColor: "#0891b2",
@@ -60,6 +74,9 @@ const useStyles = makeStyles({
     paddingBottom: "0.4rem",
     paddingRight: "0.8rem",
     paddingLeft: "0.8rem",
+  },
+  toolbar: {
+    justifyContent: "space-between",
   },
   grow: {
     flexGrow: 1,
@@ -162,8 +179,6 @@ const useStyles = makeStyles({
 
   // login and register
   form: {
-    // backgroundColor: "#ecfeff",
-    // color: "#0f172a",
     width: "60%",
     border: "1px solid",
     padding: "2rem",

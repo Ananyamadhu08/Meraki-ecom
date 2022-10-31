@@ -1,6 +1,8 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable react/jsx-fragments */
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import NextLink from "next/link";
 import { useRouter } from "next/router";
 import Cookies from "js-cookie";
@@ -8,14 +10,21 @@ import {
   AppBar,
   Toolbar,
   Typography,
-  Switch,
   Badge,
   Button,
   Menu,
   MenuItem,
   Container,
+  Box,
+  Drawer,
+  List,
+  ListItem,
+  Divider,
+  ListItemText,
 } from "@material-ui/core";
-import { useStyles } from "../../utils";
+import { useSnackbar } from "notistack";
+import axios from "axios";
+import { getError, useStyles } from "../../utils";
 import { useStore } from "../../context";
 
 export default function NavBar() {
@@ -43,7 +52,31 @@ export default function NavBar() {
     router.push("/");
   };
 
-  const darkModeChangeHandler = () => {
+  const [sidebarVisible, setSidebarVisible] = useState(false);
+
+  const sidebarOpenHandler = () => {
+    setSidebarVisible(true);
+  };
+  const sidebarCloseHandler = () => {
+    setSidebarVisible(false);
+  };
+
+  const [categories, setCategories] = useState([]);
+  const { enqueueSnackbar } = useSnackbar();
+
+  const fetchCategories = async () => {
+    try {
+      const { data } = await axios.get(`/api/products/categories`);
+      setCategories(data);
+    } catch (err) {
+      enqueueSnackbar(getError(err), { variant: "error" });
+    }
+  };
+  useEffect(() => {
+    fetchCategories();
+  }, []);
+
+  const darkModeHandler = () => {
     dispatch({ type: darkMode ? "DARK_MODE_OFF" : "DARK_MODE_ON" });
     const newDarkMode = !darkMode;
     Cookies.set("darkMode", newDarkMode ? "ON" : "OFF");
@@ -51,21 +84,65 @@ export default function NavBar() {
 
   return (
     <AppBar position="static" className={classes.navbar}>
-      <Toolbar>
-        <NextLink href="/" passHref>
-          <a>
-            <Container className={classes.brand_container}>
-              <i
-                className="fa-solid fa-dice-d20"
-                style={{ fontSize: "2rem" }}
-              />
-              <Typography className={classes.brand}>Meraki</Typography>
-            </Container>
-          </a>
-        </NextLink>
+      <Toolbar className={classes.toolbar}>
+        <Container className={classes.brand_container}>
+          <Box className={classes.nav_menu_icon}>
+            <i className="fa-solid fa-bars" onClick={sidebarOpenHandler} />
+          </Box>
+          <NextLink href="/" passHref>
+            <Typography className={classes.brand}>Meraki</Typography>
+          </NextLink>
+        </Container>
+
+        <Drawer
+          anchor="left"
+          open={sidebarVisible}
+          onClose={sidebarCloseHandler}
+        >
+          <List>
+            <ListItem>
+              <Box
+                display="flex"
+                alignItems="center"
+                justifyContent="space-between"
+              >
+                <Typography>Shop by category</Typography>
+
+                <Box className={classes.nav_menu_close_icon}>
+                  <i
+                    className="fa-solid fa-xmark"
+                    onClick={sidebarCloseHandler}
+                  />
+                </Box>
+              </Box>
+            </ListItem>
+            <Divider light />
+            {categories.map((category) => (
+              <NextLink
+                key={category}
+                href={`/search?category=${category}`}
+                passHref
+              >
+                <ListItem button component="a" onClick={sidebarCloseHandler}>
+                  <ListItemText primary={category} />
+                </ListItem>
+              </NextLink>
+            ))}
+          </List>
+        </Drawer>
         <div className={classes.grow} />
         <div className={classes.nav_link_container}>
-          <Switch checked={darkMode} onChange={darkModeChangeHandler} />
+          <Box
+            onClick={darkModeHandler}
+            className={classes.nav_dark_mode_icons}
+          >
+            {Cookies.get("darkMode") !== "ON" ? (
+              <i className="fa-solid fa-moon" />
+            ) : (
+              <i className="fa-solid fa-sun" />
+            )}
+          </Box>
+
           <NextLink href="/cart" passHref>
             {cart.cartItems.length > 0 ? (
               <Badge color="secondary" badgeContent={cart.cartItems.length}>
