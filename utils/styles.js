@@ -173,7 +173,7 @@ const useStyles = makeStyles((theme) => ({
     paddingTop: "0.6rem",
     marginLeft: "0.5rem",
     marginRight: "0.5rem",
-    marginBottom: "1rem",
+    marginBottom: "3rem",
   },
   product_card_btn: {
     fontSize: "1.5rem",
