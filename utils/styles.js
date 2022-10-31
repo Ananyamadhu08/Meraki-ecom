@@ -162,10 +162,6 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     flexDirection: "column",
     gap: "0.3rem",
-    padding: 0,
-    paddingTop: "0.2rem",
-    paddingBottom: "0.2rem",
-    paddingLeft: "1rem",
   },
   product_btn_container: {
     display: "flex",
