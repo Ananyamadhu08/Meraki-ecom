@@ -59,7 +59,6 @@ export default function Search(props) {
     max,
     searchQuery,
     price,
-    rating,
   }) => {
     const path = router.pathname;
     const { query } = router;
@@ -69,7 +68,6 @@ export default function Search(props) {
     if (category) query.category = category;
     if (brand) query.brand = brand;
     if (price) query.price = price;
-    if (rating) query.rating = rating;
     if (min) query.min ? query.min : query.min === 0 ? 0 : min;
     if (max) query.max ? query.max : query.max === 0 ? 0 : max;
 
@@ -248,7 +246,6 @@ export async function getServerSideProps({ query }) {
   const category = query.category || "";
   const brand = query.brand || "";
   const price = query.price || "";
-  const rating = query.rating || "";
   const sort = query.sort || "";
   const searchQuery = query.query || "";
 
@@ -263,14 +260,6 @@ export async function getServerSideProps({ query }) {
       : {};
   const categoryFilter = category && category !== "all" ? { category } : {};
   const brandFilter = brand && brand !== "all" ? { brand } : {};
-  const ratingFilter =
-    rating && rating !== "all"
-      ? {
-          rating: {
-            $gte: Number(rating),
-          },
-        }
-      : {};
   const priceFilter =
     price && price !== "all"
       ? {
@@ -288,8 +277,6 @@ export async function getServerSideProps({ query }) {
       ? { price: 1 }
       : sort === "highest"
       ? { price: -1 }
-      : sort === "toprated"
-      ? { rating: -1 }
       : sort === "newest"
       ? { createdAt: -1 }
       : { _id: -1 };
@@ -302,7 +289,6 @@ export async function getServerSideProps({ query }) {
       ...categoryFilter,
       ...priceFilter,
       ...brandFilter,
-      ...ratingFilter,
     },
     "-reviews",
   )
@@ -316,7 +302,6 @@ export async function getServerSideProps({ query }) {
     ...categoryFilter,
     ...priceFilter,
     ...brandFilter,
-    ...ratingFilter,
   });
   await db.disconnect();
 
