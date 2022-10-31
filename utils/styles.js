@@ -151,7 +151,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "#ecfeff",
     color: "#0f172a",
     width: "18rem",
-    height: "21rem",
+    height: "21.5rem",
   },
   product_card_img: {
     width: "100% !important",
