@@ -151,7 +151,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "#ecfeff",
     color: "#0f172a",
     width: "18rem",
-    height: "21rem",
+    height: "22rem",
   },
   product_card_img: {
     width: "100% !important",
@@ -173,7 +173,7 @@ const useStyles = makeStyles((theme) => ({
     paddingTop: "0.6rem",
     marginLeft: "0.5rem",
     marginRight: "0.5rem",
-    marginBottom: "3rem",
+    marginBottom: "2rem",
   },
   product_card_btn: {
     fontSize: "1.5rem",
