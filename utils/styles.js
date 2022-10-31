@@ -163,8 +163,8 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
     gap: "0.3rem",
     padding: 0,
-    paddingTop: "0.3rem",
-    paddingBottom: "0.3rem",
+    paddingTop: "0.2rem",
+    paddingBottom: "0.2rem",
     paddingLeft: "1rem",
   },
   product_btn_container: {
