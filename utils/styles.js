@@ -171,8 +171,8 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     justifyContent: "space-between",
     paddingTop: "0.5rem",
-    paddingLeft: "1rem",
-    paddingRight: "1rem",
+    marginLeft: "1.5rem",
+    marginRight: "1.5rem",
     marginBottom: "1rem",
   },
   product_card_btn: {
