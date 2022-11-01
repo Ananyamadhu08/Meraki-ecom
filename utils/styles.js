@@ -151,21 +151,25 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "#ecfeff",
     color: "#0f172a",
     width: "17.5rem",
-    height: "21rem",
+    height: "20.4rem",
+    marginBottom: "0.5rem",
   },
   product_card_img: {
     width: "100% !important",
     height: "13.5rem",
     objectFit: "fill !important",
   },
+  product_card_brand: {
+    fontSize: "0.9rem",
+  },
   product_card_details: {
     padding: "0!important",
-    paddingTop: "0.5rem!important",
-    paddingBottom: "0.5rem!important",
+    paddingTop: "0.3rem!important",
+    paddingBottom: "0.3rem!important",
     paddingLeft: "1rem!important",
     display: "flex",
     flexDirection: "column",
-    gap: "0.3rem",
+    gap: "0.2rem",
   },
   product_btn_container: {
     display: "flex",
@@ -173,7 +177,7 @@ const useStyles = makeStyles((theme) => ({
     paddingTop: "0.6rem",
     marginLeft: "0.5rem",
     marginRight: "0.5rem",
-    marginBottom: "2rem",
+    marginBottom: "0.4rem",
   },
   product_card_btn: {
     fontSize: "1.5rem",
