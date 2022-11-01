@@ -181,8 +181,9 @@ const useStyles = makeStyles((theme) => ({
   carousel: {
     width: "100%",
     height: "20rem",
-    borderRadius: "0.2rem",
+    borderRadius: "0.3rem",
     marginBottom: "2rem",
+    marginTop: "0.3rem",
   },
   carousel_featured_images: {
     width: "100%",
