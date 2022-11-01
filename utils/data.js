@@ -122,7 +122,7 @@ const data = {
       image: "/images/questar-hm-shoes-adidas.jpeg",
       price: 9000,
       brand: "Adidas",
-      rating: 4.6,
+      rating: 3.5,
       numReviews: 80,
       countInStock: 60,
       description:
@@ -148,7 +148,7 @@ const data = {
       image: "/images/trc-blaze-sneakers-puma.webp",
       price: 10000,
       brand: "Puma",
-      rating: 4.8,
+      rating: 4,
       numReviews: 110,
       countInStock: 70,
       description:
@@ -162,7 +162,7 @@ const data = {
       image: "/images/reversible-track-pants-hm.jpeg",
       price: 4000,
       brand: "H&M",
-      rating: 4.7,
+      rating: 4.5,
       numReviews: 130,
       countInStock: 80,
       description:
@@ -175,7 +175,7 @@ const data = {
       image: "/images/nike-polo-shirt.webp",
       price: 3300,
       brand: "Nike",
-      rating: 3.9,
+      rating: 4.8,
       numReviews: 46,
       countInStock: 30,
       description:
@@ -189,7 +189,7 @@ const data = {
       image: "/images/tech-fleece-trousers-nike.webp",
       price: 5700,
       brand: "Nike",
-      rating: 4.2,
+      rating: 3.5,
       numReviews: 50,
       countInStock: 40,
       description:
@@ -202,7 +202,7 @@ const data = {
       image: "/images/hi-top-trainers-h&m.jpeg",
       price: 3000,
       brand: "H&M",
-      rating: 4.2,
+      rating: 4,
       numReviews: 60,
       countInStock: 20,
       description:
@@ -215,7 +215,7 @@ const data = {
       image: "/images/red-bull-racing-printed-t-shirt-puma.webp",
       price: 3500,
       brand: "Puma",
-      rating: 4.3,
+      rating: 3,
       numReviews: 70,
       countInStock: 30,
       description:
@@ -241,7 +241,7 @@ const data = {
       image: "/images/nike-airmax-flyknit-racer.jpeg",
       price: 15000,
       brand: "Nike",
-      rating: 4.8,
+      rating: 4.2,
       numReviews: 115,
       countInStock: 80,
       description:
