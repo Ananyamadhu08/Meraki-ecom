@@ -150,8 +150,8 @@ const useStyles = makeStyles((theme) => ({
   product_card: {
     backgroundColor: "#ecfeff",
     color: "#0f172a",
-    width: "18rem",
-    height: "22rem",
+    width: "17.5rem",
+    height: "21rem",
   },
   product_card_img: {
     width: "100% !important",
@@ -159,6 +159,10 @@ const useStyles = makeStyles((theme) => ({
     objectFit: "fill !important",
   },
   product_card_details: {
+    padding: "0!important",
+    paddingTop: "0.5rem!important",
+    paddingBottom: "0.5rem!important",
+    paddingLeft: "1rem!important",
     display: "flex",
     flexDirection: "column",
     gap: "0.3rem",
