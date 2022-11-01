@@ -25,7 +25,9 @@ export default function ProductCard({ product, addToCartHandler }) {
           />
           <CardContent className={classes.product_card_details}>
             <Typography>{product.name}</Typography>
-            <Typography>{product.brand}</Typography>
+            <Typography className={classes.product_card_brand}>
+              {product.brand}
+            </Typography>
           </CardContent>
         </CardActionArea>
       </NextLink>
