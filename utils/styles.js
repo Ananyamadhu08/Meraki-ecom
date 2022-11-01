@@ -177,6 +177,19 @@ const useStyles = makeStyles((theme) => ({
     cursor: "pointer",
   },
 
+  // home page
+  carousel: {
+    width: "100%",
+    height: "20rem",
+    borderRadius: "0.2rem",
+    marginBottom: "2rem",
+  },
+  carousel_featured_images: {
+    width: "100%",
+    height: "100%",
+    objectFit: "contain",
+  },
+
   // product details page
   product_details_page_card: {
     backgroundColor: "#ecfeff",
