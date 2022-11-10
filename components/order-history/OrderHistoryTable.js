@@ -106,7 +106,7 @@ function OrderHistoryTable({ loading, error, orders }) {
                         <NextLink href={`/order/${order._id}`} passHref>
                           <Button
                             variant="solid"
-                            className={classes.btn_primary}
+                            className={classes.order_history_table_button}
                           >
                             Details
                           </Button>

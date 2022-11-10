@@ -98,7 +98,7 @@ function OrderSummary({
           </ListItem>
         )}
 
-        {userInfo.isAdmin && order.isPaid && !order.isDelivered && (
+        {userInfo?.isAdmin && order.isPaid && !order.isDelivered && (
           <ListItem className={classes.deliver_btn_container}>
             {loadingDeliver ? (
               <CircularProgress />

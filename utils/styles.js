@@ -300,6 +300,14 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "#ecfeff",
   },
 
+  order_history_table_button: {
+    backgroundColor: "#0891b2",
+    color: "#ecfeff",
+    "&:hover": {
+      backgroundColor: "#164e63",
+    },
+  },
+
   // user profile
   user_profile_card: {
     marginTop: "1rem",
